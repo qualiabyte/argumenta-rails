@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Argumenta Rails
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    link rel="stylesheet" href="https://argumenta.io/widgets/css/argumenta.css"
+    script src="https://argumenta.io/widgets/js/require.js" data-main="https://argumenta.io/widgets/js/main.js"
+  body
+    div.content
+      = yield
