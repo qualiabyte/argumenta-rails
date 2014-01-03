@@ -1,21 +1,11 @@
-h1 Listing propositions
-
-table
-  tr
-    th Text
-    th Sha1
-    th
-    th
-    th
-
-  - @propositions.each do |proposition|
-    tr
-      td = proposition.text
-      td = proposition.sha1
-      td = link_to 'Show', proposition
-      td = link_to 'Edit', edit_proposition_path(proposition)
-      td = link_to 'Destroy', proposition, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
+h1 Propositions
 
 = link_to 'New Proposition', new_proposition_path
+
+div.propositions
+  - @propositions.each do |prop|
+    div.proposition-widget(data-proposition=prop.to_json)
+    div.actions
+      span.action = link_to 'Show', prop
+      span.action = link_to 'Edit', edit_proposition_path(prop)
+      span.action = link_to 'Destroy', prop, data: {:confirm => 'Are you sure?'}, :method => :delete
