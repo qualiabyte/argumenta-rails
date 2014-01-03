@@ -3,6 +3,10 @@ require 'test_helper'
 class PropositionsControllerTest < ActionController::TestCase
   setup do
     @proposition = propositions(:one)
+    @update = {
+      text: "My proposition!",
+      sha1: "fe1d2c8da97cd63ff28f9a1a3598fe29def216dd"
+    }
   end
 
   test "should get index" do
@@ -18,7 +22,7 @@ class PropositionsControllerTest < ActionController::TestCase
 
   test "should create proposition" do
     assert_difference('Proposition.count') do
-      post :create, proposition: { sha1: @proposition.sha1, text: @proposition.text }
+      post :create, proposition: @update
     end
 
     assert_redirected_to proposition_path(assigns(:proposition))
@@ -35,7 +39,7 @@ class PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should update proposition" do
-    patch :update, id: @proposition, proposition: { sha1: @proposition.sha1, text: @proposition.text }
+    patch :update, id: @proposition, proposition: @update
     assert_redirected_to proposition_path(assigns(:proposition))
   end
 
