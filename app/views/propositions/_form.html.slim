@@ -1,0 +1,15 @@
+= form_for @proposition do |f|
+  - if @proposition.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@proposition.errors.count, "error")} prohibited this proposition from being saved:"
+      ul
+        - @proposition.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :text
+    = f.text_field :text
+  .field
+    = f.label :sha1
+    = f.text_field :sha1
+  .actions = f.submit 'Save'

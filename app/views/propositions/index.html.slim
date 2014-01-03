@@ -1,0 +1,21 @@
+h1 Listing propositions
+
+table
+  tr
+    th Text
+    th Sha1
+    th
+    th
+    th
+
+  - @propositions.each do |proposition|
+    tr
+      td = proposition.text
+      td = proposition.sha1
+      td = link_to 'Show', proposition
+      td = link_to 'Edit', edit_proposition_path(proposition)
+      td = link_to 'Destroy', proposition, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Proposition', new_proposition_path

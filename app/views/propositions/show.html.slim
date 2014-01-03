@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Text:
+  = @proposition.text
+p
+  strong Sha1:
+  = @proposition.sha1
+
+= link_to 'Edit', edit_proposition_path(@proposition)
+'|
+= link_to 'Back', propositions_path
