@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Proposition.delete_all
+Proposition.create!(
+  text: "My proposition!",
+  sha1: "fe1d2c8da97cd63ff28f9a1a3598fe29def216dd"
+)
