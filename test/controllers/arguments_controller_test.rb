@@ -3,6 +3,9 @@ require 'test_helper'
 class ArgumentsControllerTest < ActionController::TestCase
   setup do
     @argument = arguments(:one)
+    @valid = arguments(:valid)
+    @defaults = @valid.attributes
+    @valid.destroy
   end
 
   test "should get index" do
@@ -18,7 +21,7 @@ class ArgumentsControllerTest < ActionController::TestCase
 
   test "should create argument" do
     assert_difference('Argument.count') do
-      post :create, argument: { sha1: @argument.sha1, title: @argument.title }
+      post :create, argument: @defaults
     end
 
     assert_redirected_to argument_path(assigns(:argument))
@@ -35,7 +38,7 @@ class ArgumentsControllerTest < ActionController::TestCase
   end
 
   test "should update argument" do
-    patch :update, id: @argument, argument: { sha1: @argument.sha1, title: @argument.title }
+    patch :update, id: @argument, argument: @defaults
     assert_redirected_to argument_path(assigns(:argument))
   end
 

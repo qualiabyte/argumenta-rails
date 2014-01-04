@@ -7,3 +7,11 @@ one:
 two:
   title: MyString
   sha1: MyString
+
+valid:
+  title: "My Argument ^_^"
+  sha1: "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+
+happiness:
+  title: "Happiness & Success"
+  sha1: "dc122dcb60d78926c1289b30d8c436f3efcfde99"
