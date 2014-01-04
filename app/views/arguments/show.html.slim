@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @argument.title
+p
+  strong Sha1:
+  = @argument.sha1
+
+= link_to 'Edit', edit_argument_path(@argument)
+'|
+= link_to 'Back', arguments_path

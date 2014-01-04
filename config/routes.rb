@@ -1,4 +1,6 @@
 ArgumentaRails::Application.routes.draw do
+  resources :arguments
+
   resources :propositions
 
   # The priority is based upon order of creation: first created -> highest priority.
