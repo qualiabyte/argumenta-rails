@@ -7,3 +7,7 @@ one:
 two:
   text: MyString
   sha1: MyString
+
+valid:
+  text: "My proposition!"
+  sha1: "fe1d2c8da97cd63ff28f9a1a3598fe29def216dd"
