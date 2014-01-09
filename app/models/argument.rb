@@ -1,5 +1,9 @@
 class Argument < ActiveRecord::Base
 
+  has_and_belongs_to_many :propositions,
+    foreign_key: "argument_sha1",
+    association_foreign_key: "proposition_sha1"
+
   validates :title, :sha1,
     presence: true
 
