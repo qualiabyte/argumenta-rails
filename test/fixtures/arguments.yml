@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  sha1: MyString
+  title: "Argument One"
+  sha1: "1111111111111111111111111111111111111111"
 
 two:
-  title: MyString
-  sha1: MyString
+  title: "Argument Two"
+  sha1: "2222222222222222222222222222222222222222"
 
 valid:
   title: "My Argument ^_^"

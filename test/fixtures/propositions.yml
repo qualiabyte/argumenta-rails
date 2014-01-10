@@ -1,12 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  text: MyString
-  sha1: MyString
+  text: "Proposition one."
+  sha1: "7ddd15abc6ddac8532d2ed6ec6808dd855ebcb00"
 
 two:
-  text: MyString
-  sha1: MyString
+  text: "Proposition two."
+  sha1: "d52b46aadf23ae6ac88bfb04641066cf70471f8d"
 
 valid:
   text: "My proposition!"
