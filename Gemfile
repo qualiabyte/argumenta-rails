@@ -45,4 +45,7 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+# Use Pry REPL for debugging
+gem 'pry', group: [:development, :test]
