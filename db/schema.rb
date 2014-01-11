@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111065353) do
+ActiveRecord::Schema.define(version: 20140111072345) do
 
   create_table "arguments", id: false, force: true do |t|
     t.string   "title"
-    t.string   "sha1"
+    t.string   "sha1",       limit: 40, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "arguments", ["sha1"], name: "index_arguments_on_sha1", unique: true
 
   create_table "arguments_propositions", id: false, force: true do |t|
     t.string  "argument_sha1"
@@ -36,5 +38,7 @@ ActiveRecord::Schema.define(version: 20140111065353) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "propositions", ["sha1"], name: "index_propositions_on_sha1", unique: true
 
 end

@@ -21,8 +21,9 @@ class PropositionsControllerTest < ActionController::TestCase
   end
 
   test "should create proposition" do
+    @proposition.destroy
     assert_difference('Proposition.count') do
-      post :create, proposition: @update
+      post :create, proposition: @proposition.attributes
     end
 
     assert_redirected_to proposition_path(assigns(:proposition))
