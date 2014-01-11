@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+# Use Composite Primary Keys to replace surrogate key ids
+gem 'composite_primary_keys', '6.0.1'
+
 # Use Slim for templates
 gem 'slim-rails', '~> 2.0.4'
 
