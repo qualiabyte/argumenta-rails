@@ -1,4 +1,6 @@
 class Proposition < ActiveRecord::Base
+  self.primary_keys = :sha1
+
   has_and_belongs_to_many :arguments,
     foreign_key: "proposition_sha1",
     association_foreign_key: "argument_sha1"
