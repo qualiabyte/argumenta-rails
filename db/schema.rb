@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140108080121) do
+ActiveRecord::Schema.define(version: 20140111065353) do
 
-  create_table "arguments", force: true do |t|
+  create_table "arguments", id: false, force: true do |t|
     t.string   "title"
     t.string   "sha1"
     t.datetime "created_at"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140108080121) do
   add_index "arguments_propositions", ["argument_sha1"], name: "index_arguments_propositions_on_argument_sha1"
   add_index "arguments_propositions", ["proposition_sha1"], name: "index_arguments_propositions_on_proposition_sha1"
 
-  create_table "propositions", force: true do |t|
+  create_table "propositions", id: false, force: true do |t|
     t.string   "text",       limit: 240, null: false
     t.string   "sha1",       limit: 40,  null: false
     t.datetime "created_at"
