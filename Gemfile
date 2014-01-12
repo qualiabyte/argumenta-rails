@@ -52,3 +52,6 @@ gem 'debugger', group: [:development, :test]
 
 # Use Pry REPL for debugging
 gem 'pry', group: [:development, :test]
+
+# Use MiniTest Pride for color output
+gem 'minitest', '~> 4.7.5', group: [:development, :test]
