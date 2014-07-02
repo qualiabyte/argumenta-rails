@@ -1,9 +1,13 @@
 class Argument < ActiveRecord::Base
   self.primary_keys = :sha1
 
-  has_and_belongs_to_many :propositions,
+  has_many :arguments_propositions,
+    foreign_key: "argument_sha1"
+
+  has_many :propositions,
+    through: :arguments_propositions,
     foreign_key: "argument_sha1",
-    association_foreign_key: "proposition_sha1"
+    primary_key: "sha1"
 
   validates :title,
     presence: true,
