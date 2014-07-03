@@ -10,6 +10,10 @@ class PropositionsController < ApplicationController
   # GET /propositions/1
   # GET /propositions/1.json
   def show
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @proposition }
+    end
   end
 
   # GET /propositions/new

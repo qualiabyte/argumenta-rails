@@ -10,6 +10,10 @@ class ArgumentsController < ApplicationController
   # GET /arguments/1
   # GET /arguments/1.json
   def show
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @argument }
+    end
   end
 
   # GET /arguments/new

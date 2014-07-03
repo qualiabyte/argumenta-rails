@@ -28,4 +28,14 @@ class Argument < ActiveRecord::Base
   def conclusion
     propositions.last
   end
+
+  def serializable_hash(options)
+    options ||= {}
+    defaults = {
+      methods: [:premises, :conclusion],
+      except: [:created_at, :updated_at],
+      include: []
+    }
+    super(defaults.merge(options))
+  end
 end

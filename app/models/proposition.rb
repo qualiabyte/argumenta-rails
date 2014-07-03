@@ -18,4 +18,10 @@ class Proposition < ActiveRecord::Base
     format: {
       with: /\A[0-9a-f]{40}\z/,
       message: "must be a 40 character hexadecimal string" }
+
+  def serializable_hash(options)
+    options ||= {}
+    defaults = { except: [:created_at, :updated_at] }
+    super(defaults.merge(options))
+  end
 end
