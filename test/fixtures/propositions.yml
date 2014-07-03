@@ -8,6 +8,18 @@ two:
   text: "Proposition two."
   sha1: "d52b46aadf23ae6ac88bfb04641066cf70471f8d"
 
+first:
+  text: "The first premise!"
+  sha1: "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe"
+
+second:
+  text: "The second premise!"
+  sha1: "29da59119a5c3cec4f7b339433e8931ea99771cf"
+
+conclusion:
+  text: "The conclusion."
+  sha1: "3940b2a6a3d5778297f0e37a06109f9d3dcffe6d"
+
 valid:
   text: "My proposition!"
   sha1: "fe1d2c8da97cd63ff28f9a1a3598fe29def216dd"

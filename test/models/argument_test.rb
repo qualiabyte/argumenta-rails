@@ -27,4 +27,23 @@ class ArgumentTest < ActiveSupport::TestCase
     assert_equal @proposition, @argument.propositions.first
     assert_includes @proposition.arguments, @argument
   end
+
+  test "access title" do
+    assert_equal @argument.title, "My Argument ^_^"
+  end
+
+  test "access premises" do
+    assert_equal @argument.premises,
+      propositions(:first, :second)
+  end
+
+  test "access conclusion" do
+    assert_equal @argument.conclusion,
+      propositions(:conclusion)
+  end
+
+  test "access propositions" do
+    assert_equal @argument.propositions,
+      propositions(:first, :second, :conclusion)
+  end
 end

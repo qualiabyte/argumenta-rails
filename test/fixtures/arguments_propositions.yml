@@ -1,0 +1,15 @@
+
+first_join:
+  argument_sha1: "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+  proposition_sha1: "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe"
+  position: 1
+
+second_join:
+  argument_sha1: "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+  proposition_sha1: "29da59119a5c3cec4f7b339433e8931ea99771cf"
+  position: 2
+
+conclusion_join:
+  argument_sha1: "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+  proposition_sha1: "3940b2a6a3d5778297f0e37a06109f9d3dcffe6d"
+  position: 3

@@ -5,6 +5,7 @@ class Argument < ActiveRecord::Base
     foreign_key: "argument_sha1"
 
   has_many :propositions,
+    -> { order "position" },
     through: :arguments_propositions,
     foreign_key: "argument_sha1",
     primary_key: "sha1"
@@ -19,4 +20,12 @@ class Argument < ActiveRecord::Base
     format: {
       with: /\A[0-9a-f]{40}\z/,
       message: "must be a 40 character hexadecimal string" }
+
+  def premises
+    propositions.slice(0, propositions.length - 1)
+  end
+
+  def conclusion
+    propositions.last
+  end
 end
