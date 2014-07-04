@@ -1,6 +1,8 @@
 ArgumentaRails::Application.routes.draw do
-  resources :arguments
+  root "welcome#index"
+  get "welcome/index"
 
+  resources :arguments
   resources :propositions
 
   # The priority is based upon order of creation: first created -> highest priority.

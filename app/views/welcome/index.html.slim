@@ -1,0 +1,5 @@
+h1 Argumenta
+h2 Latest Arguments
+div.arguments
+  - @arguments.each do |argument|
+    div.argument-widget(data-argument=argument.to_json)
