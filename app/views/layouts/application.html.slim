@@ -6,8 +6,7 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
     link rel="stylesheet" href="https://argumenta.io/widgets/css/argumenta.css"
-    script src="https://argumenta.io/widgets/js/require.js" data-main="https://argumenta.io/widgets/js/main.js"
-  body data-no-turbolink=true
+  body
     nav
       ul
         li: a href="/": span.logo Argumenta
@@ -15,3 +14,11 @@ html
         li: a href="/propositions" Propositions
     div.content
       = yield
+    script src="https://argumenta.io/widgets/js/require.js" data-main="https://argumenta.io/widgets/js/main.js"
+    javascript:
+      requirejs(['argumenta/widgets', 'argumenta'], function(widgets, argumenta) {
+        var activate = function() {
+          widgets.activateAll();
+        };
+        $(document).ready(activate);
+      });
