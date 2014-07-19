@@ -2,11 +2,11 @@ doctype html
 html
   head
     title Argumenta Rails
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
     link rel="stylesheet" href="https://argumenta.io/widgets/css/argumenta.css"
-  body
+  body.argumenta
     nav
       ul
         li: a href="/": span.logo Argumenta
@@ -14,11 +14,12 @@ html
         li: a href="/propositions" Propositions
     div.content
       = yield
-    script src="https://argumenta.io/widgets/js/require.js" data-main="https://argumenta.io/widgets/js/main.js"
-    javascript:
-      requirejs(['argumenta/widgets', 'argumenta'], function(widgets, argumenta) {
-        var activate = function() {
-          widgets.activateAll();
+    - if debug = false
+      javascript:
+        var ARGUMENTA_CONFIG = {
+          baseUrl:    'http://192.168.1.201:4000',
+          widgetsUrl: 'http://192.168.1.201:4000/widgets'
         };
-        $(document).ready(activate);
-      });
+      script src="http://192.168.1.201:4000/widgets/js/require.js" data-main="http://192.168.1.201:4000/widgets/js/main.js"
+    - else
+      script src="https://argumenta.io/widgets/js/require.js" data-main="https://argumenta.io/widgets/js/main.js"
