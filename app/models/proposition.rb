@@ -19,6 +19,15 @@ class Proposition < ActiveRecord::Base
       with: /\A[0-9a-f]{40}\z/,
       message: "must be a 40 character hexadecimal string" }
 
+  def sha1
+    super() or
+    Digest::SHA1.hexdigest record
+  end
+
+  def record
+    "proposition #{text}"
+  end
+
   def serializable_hash(options)
     options ||= {}
     defaults = { except: [:created_at, :updated_at] }
