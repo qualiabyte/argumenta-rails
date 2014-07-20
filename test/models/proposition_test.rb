@@ -20,17 +20,19 @@ class PropositionTest < ActiveSupport::TestCase
 
   test "returns a valid record" do
     proposition = Proposition.new text: "The first premise!"
-    assert_equal proposition.record, "proposition The first premise!"
+    assert_equal "proposition The first premise!",
+      proposition.record
   end
 
   test "returns a valid sha1" do
     proposition = Proposition.new text: "The first premise!"
-    assert_equal proposition.sha1, "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe"
+    assert_equal "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe",
+      proposition.sha1
   end
 
   test "returns a stored sha1" do
     sha1 = "1234567890123456789012345678901234567890"
     proposition = Proposition.new sha1: sha1
-    assert_equal proposition.sha1, sha1
+    assert_equal sha1, proposition.sha1
   end
 end

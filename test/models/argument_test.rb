@@ -24,26 +24,26 @@ class ArgumentTest < ActiveSupport::TestCase
   test "add a proposition" do
     @argument.propositions.clear
     @argument.propositions << @proposition
-    assert_equal @proposition, @argument.propositions.first
+    assert_equal @argument.propositions.first, @proposition
     assert_includes @proposition.arguments, @argument
   end
 
   test "access title" do
-    assert_equal @argument.title, "My Argument ^_^"
+    assert_equal "My Argument ^_^", @argument.title
   end
 
   test "access premises" do
-    assert_equal @argument.premises,
-      propositions(:first, :second)
+    assert_equal propositions(:first, :second),
+      @argument.premises
   end
 
   test "access conclusion" do
-    assert_equal @argument.conclusion,
-      propositions(:conclusion)
+    assert_equal propositions(:conclusion),
+      @argument.conclusion
   end
 
   test "access propositions" do
-    assert_equal @argument.propositions,
-      propositions(:first, :second, :conclusion)
+    assert_equal propositions(:first, :second, :conclusion),
+      @argument.propositions
   end
 end
