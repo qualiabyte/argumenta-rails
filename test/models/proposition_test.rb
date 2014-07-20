@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PropositionTest < ActiveSupport::TestCase
+describe Proposition do
   fixtures :propositions
 
   def setup
@@ -8,31 +8,35 @@ class PropositionTest < ActiveSupport::TestCase
     @defaults = @valid.attributes
   end
 
-  test "validation fails for empty attributes" do
-    proposition = Proposition.new
-    assert proposition.invalid?
+  describe "valid?" do
+    it "fails for empty attributes" do
+      proposition = Proposition.new
+      assert proposition.invalid?
+    end
+
+    it "passes for valid attributes" do
+      proposition = Proposition.new @defaults
+      assert proposition.valid?
+    end
   end
 
-  test "validation passes for valid attributes" do
-    proposition = Proposition.new @defaults
-    assert proposition.valid?
+  describe "record" do
+    it "gets the object record" do
+      proposition = Proposition.new text: "The first premise!"
+      proposition.record.must_equal "proposition The first premise!"
+    end
   end
 
-  test "returns a valid record" do
-    proposition = Proposition.new text: "The first premise!"
-    assert_equal "proposition The first premise!",
-      proposition.record
-  end
+  describe "sha1" do
+    it "gets the sha1" do
+      proposition = Proposition.new text: "The first premise!"
+      proposition.sha1.must_equal "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe"
+    end
 
-  test "returns a valid sha1" do
-    proposition = Proposition.new text: "The first premise!"
-    assert_equal "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe",
-      proposition.sha1
-  end
-
-  test "returns a stored sha1" do
-    sha1 = "1234567890123456789012345678901234567890"
-    proposition = Proposition.new sha1: sha1
-    assert_equal sha1, proposition.sha1
+    it "gets a stored sha1" do
+      sha1 = "1234567890123456789012345678901234567890"
+      proposition = Proposition.new sha1: sha1
+      assert_equal sha1, proposition.sha1
+    end
   end
 end

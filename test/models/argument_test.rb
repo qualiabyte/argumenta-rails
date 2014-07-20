@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ArgumentTest < ActiveSupport::TestCase
+describe Argument do
   fixtures :arguments, :propositions
 
   def setup
@@ -9,41 +9,50 @@ class ArgumentTest < ActiveSupport::TestCase
     @proposition = propositions :valid
   end
 
-  test "validation fails for empty attributes" do
-    @argument.destroy
-    argument = Argument.new
-    assert argument.invalid?
+  describe "valid?" do
+    it "passes for valid attributes" do
+      @argument.destroy
+      argument = Argument.new @defaults
+      assert argument.valid?, argument.errors.to_hash
+    end
+
+    it "fails for empty attributes" do
+      @argument.destroy
+      argument = Argument.new
+      assert argument.invalid?
+    end
   end
 
-  test "validation passes for valid attributes" do
-    @argument.destroy
-    argument = Argument.new @defaults
-    assert argument.valid?, argument.errors.to_hash
+  describe "title" do
+    it "gets the title" do
+      @argument.title.must_equal "My Argument ^_^"
+    end
   end
 
-  test "add a proposition" do
-    @argument.propositions.clear
-    @argument.propositions << @proposition
-    assert_equal @argument.propositions.first, @proposition
-    assert_includes @proposition.arguments, @argument
+  describe "premises" do
+    it "gets the premises" do
+      @argument.premises.must_equal propositions(:first, :second)
+    end
   end
 
-  test "access title" do
-    assert_equal "My Argument ^_^", @argument.title
+  describe "conclusion" do
+    it "gets the conclusion" do
+      @argument.conclusion.must_equal propositions(:conclusion)
+    end
   end
 
-  test "access premises" do
-    assert_equal propositions(:first, :second),
-      @argument.premises
-  end
+  describe "propositions" do
+    it "adds a proposition" do
+      @argument.propositions.clear
+      @argument.propositions << @proposition
+      @argument.propositions.first.must_equal @proposition
+      @proposition.arguments.must_include @argument
+    end
 
-  test "access conclusion" do
-    assert_equal propositions(:conclusion),
-      @argument.conclusion
-  end
-
-  test "access propositions" do
-    assert_equal propositions(:first, :second, :conclusion),
-      @argument.propositions
+    it "gets the propositions" do
+      @argument.propositions.must_equal(
+        propositions(:first, :second, :conclusion)
+      )
+    end
   end
 end
