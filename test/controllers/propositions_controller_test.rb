@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PropositionsControllerTest < ActionController::TestCase
+describe PropositionsController
   setup do
     @proposition = propositions(:one)
     @update = {
@@ -9,18 +9,18 @@ class PropositionsControllerTest < ActionController::TestCase
     }
   end
 
-  test "should get index" do
+  it "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:propositions)
   end
 
-  test "should get new" do
+  it "should get new" do
     get :new
     assert_response :success
   end
 
-  test "should create proposition" do
+  it "should create proposition" do
     @proposition.destroy
     assert_difference('Proposition.count') do
       post :create, proposition: @proposition.attributes
@@ -29,22 +29,22 @@ class PropositionsControllerTest < ActionController::TestCase
     assert_redirected_to proposition_path(assigns(:proposition))
   end
 
-  test "should show proposition" do
+  it "should show proposition" do
     get :show, id: @proposition
     assert_response :success
   end
 
-  test "should get edit" do
+  it "should get edit" do
     get :edit, id: @proposition
     assert_response :success
   end
 
-  test "should update proposition" do
+  it "should update proposition" do
     patch :update, id: @proposition, proposition: @update
     assert_redirected_to proposition_path(assigns(:proposition))
   end
 
-  test "should destroy proposition" do
+  it "should destroy proposition" do
     assert_difference('Proposition.count', -1) do
       delete :destroy, id: @proposition
     end
