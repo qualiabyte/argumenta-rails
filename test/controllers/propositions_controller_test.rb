@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe PropositionsController
+describe PropositionsController do
   setup do
     @proposition = propositions(:one)
     @update = {

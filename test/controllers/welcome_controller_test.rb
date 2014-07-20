@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe WelcomeController
+describe WelcomeController do
   it "should get index" do
     get :index
     assert_response :success

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-describe ArgumentsController
+describe ArgumentsController do
   setup do
     @argument = arguments(:one)
     @valid = arguments(:valid)
