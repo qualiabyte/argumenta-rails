@@ -29,6 +29,25 @@ class Argument < ActiveRecord::Base
     propositions.last
   end
 
+  def record
+    head = "argument\n\n"
+    body = "title #{title}\n"
+    premises.each do |p|
+      body += "premise #{p.sha1}\n"
+    end
+    body += "conclusion #{conclusion.sha1}\n"
+    record = head + body
+  rescue
+    nil
+  end
+
+  def sha1
+    super() or
+    Digest::SHA1.hexdigest record
+  rescue
+    nil
+  end
+
   def serializable_hash(options)
     options ||= {}
     defaults = {

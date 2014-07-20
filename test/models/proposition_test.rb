@@ -28,12 +28,12 @@ describe Proposition do
   end
 
   describe "sha1" do
-    it "should get the sha1" do
+    it "should compute the SHA-1 when missing" do
       proposition = Proposition.new text: "The first premise!"
       proposition.sha1.must_equal "37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe"
     end
 
-    it "should get a stored sha1" do
+    it "should get the SHA-1 when stored" do
       sha1 = "1234567890123456789012345678901234567890"
       proposition = Proposition.new sha1: sha1
       assert_equal sha1, proposition.sha1

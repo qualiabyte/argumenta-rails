@@ -55,4 +55,32 @@ describe Argument do
       )
     end
   end
+
+  describe "record" do
+    it "should get the object record" do
+      record = @argument.record
+      record.must_equal <<-END.gsub(/^ +/, '')
+        argument
+
+        title My Argument ^_^
+        premise 37ca8beaaac1d1b8412c9fb1fd73e524c9862ebe
+        premise 29da59119a5c3cec4f7b339433e8931ea99771cf
+        conclusion 3940b2a6a3d5778297f0e37a06109f9d3dcffe6d
+      END
+    end
+  end
+
+  describe "sha1" do
+    it "should compute the SHA-1 when missing" do
+      @argument.propositions
+      @argument.sha1 = nil
+      sha1 = @argument.sha1
+      sha1.must_equal "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+    end
+
+    it "should get the SHA-1 when stored" do
+      sha1 = @argument.sha1
+      sha1.must_equal "50250211801dabf9cbf0e574af270ba2c3fe83cb"
+    end
+  end
 end
