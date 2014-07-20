@@ -10,13 +10,13 @@ describe Argument do
   end
 
   describe "valid?" do
-    it "passes for valid attributes" do
+    it "should pass for valid attributes" do
       @argument.destroy
       argument = Argument.new @defaults
       assert argument.valid?, argument.errors.to_hash
     end
 
-    it "fails for empty attributes" do
+    it "should fail for empty attributes" do
       @argument.destroy
       argument = Argument.new
       assert argument.invalid?
@@ -24,32 +24,32 @@ describe Argument do
   end
 
   describe "title" do
-    it "gets the title" do
+    it "should get the title" do
       @argument.title.must_equal "My Argument ^_^"
     end
   end
 
   describe "premises" do
-    it "gets the premises" do
+    it "should get the premises" do
       @argument.premises.must_equal propositions(:first, :second)
     end
   end
 
   describe "conclusion" do
-    it "gets the conclusion" do
+    it "should get the conclusion" do
       @argument.conclusion.must_equal propositions(:conclusion)
     end
   end
 
   describe "propositions" do
-    it "adds a proposition" do
+    it "should add a proposition" do
       @argument.propositions.clear
       @argument.propositions << @proposition
       @argument.propositions.first.must_equal @proposition
       @proposition.arguments.must_include @argument
     end
 
-    it "gets the propositions" do
+    it "should get the propositions" do
       @argument.propositions.must_equal(
         propositions(:first, :second, :conclusion)
       )
